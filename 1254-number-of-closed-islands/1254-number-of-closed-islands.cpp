@@ -1,6 +1,7 @@
+int dir[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
+vector<vector<bool>> vis;
+
 class Solution {
-    int dir[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
-    vector<vector<bool>> vis;
     
     void flood(vector<vector<int>>& grid, int r, int c, int n, int m){
         if(r < 0 || r >= n || c < 0 || c >= m || vis[r][c] || grid[r][c]){
