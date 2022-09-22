@@ -5,7 +5,7 @@ class Solution {
         vector<vector<int>>& grid, vector<vector<bool>>& vis, 
         int r, int c, int n, int m
     ){
-        if(r < 0 || r >= n || c < 0 || c >= m || vis[r][c] || grid[r][c] == 0){
+        if(r < 0 || r >= n || c < 0 || c >= m || vis[r][c] || !grid[r][c]){
             return 0;
         }
         vis[r][c] = 1;
