@@ -3,8 +3,12 @@ vector<vector<bool>> vis;
 
 class Solution {
     
+    bool unsafe(int r, int c, int n, int m){
+       return r < 0 || r >= n || c < 0 || c >= m; 
+    }
+    
     void flood(vector<vector<int>>& grid, int r, int c, int n, int m){
-        if(r < 0 || r >= n || c < 0 || c >= m || vis[r][c] || grid[r][c]){
+        if(unsafe(r,c,n,m) || vis[r][c] || grid[r][c]){
             return ;
         }
         vis[r][c] = 1;
