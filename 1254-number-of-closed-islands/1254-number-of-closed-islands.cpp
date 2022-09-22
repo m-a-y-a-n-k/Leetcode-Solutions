@@ -26,20 +26,19 @@ public:
         int n = grid.size(), m = grid[0].size();
         vis = vector<vector<bool>>(n, vector<bool>(m, false));
         
+        vector<int> rowB = {0, n-1}, colB = {0, m-1};
         for(int r = 0; r < n; ++r){
-            if(!vis[r][0] && !grid[r][0]){
-                flood(grid, r, 0, n, m);
-            }
-            if(!vis[r][m-1] && !grid[r][m-1]){
-                flood(grid, r, m-1, n, m);
+            for(auto &c: colB){
+                if(!grid[r][c] && !vis[r][c]){
+                    flood(grid, r, c, n, m);
+                }
             }
         }
         for(int c = 0; c < m; ++c){
-            if(!vis[0][c] && !grid[0][c]){
-                flood(grid, 0, c, n, m);
-            }
-            if(!vis[n-1][c] && !grid[n-1][c]){
-                flood(grid, n-1, c, n, m);
+            for(auto &r: rowB){
+                if(!grid[r][c] && !vis[r][c]){
+                    flood(grid, r, c, n, m);
+                }
             }
         }
         
@@ -48,7 +47,7 @@ public:
         int ans = 0;
         for(int r = 0; r < n; ++r){
             for(int c = 0; c < m; ++c){
-                if(!vis[r][c] && !grid[r][c]){
+                if(!grid[r][c] && !vis[r][c]){
                     ans++;
                     flood(grid, r, c, n, m);
                 }
