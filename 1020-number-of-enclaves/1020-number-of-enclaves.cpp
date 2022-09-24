@@ -13,9 +13,6 @@ class Solution {
         
         for(int k = 0; k < 4; ++k){
             int x = r + dir[k][0], y = c + dir[k][1];
-            if(x < 0 || x >= n || y < 0 || y >= m || vis[x][y] || !grid[x][y]){
-                continue;
-            }
             ans += fill(grid, x, y, n, m);
         }
         
