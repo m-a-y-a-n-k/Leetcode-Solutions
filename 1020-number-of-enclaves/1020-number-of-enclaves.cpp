@@ -24,22 +24,22 @@ public:
         int n = size(grid), m = size(grid[0]);
         int ans = 0;
         vis = vector<vector<bool>>(n, vector<bool>(m, false));
-        
-        vector<int> rowB = {0, n - 1}, colB = {0, m - 1};
-        
+                
         for(int i = 0; i < n; ++i){
-            for(int k = 0; k < 2; ++k){
-                if(grid[i][colB[k]] && !vis[i][colB[k]]){
-                    fill(grid, i, colB[k], n, m);
-                }
+            if(grid[i][0] && !vis[i][0]){
+                fill(grid, i, 0, n, m);
+            }
+            if(grid[i][m-1] && !vis[i][m-1]){
+                fill(grid, i, m-1, n, m);
             }
         }
         
         for(int i = 0; i < m; ++i){
-            for(int k = 0; k < 2; ++k){
-                if(grid[rowB[k]][i] && !vis[rowB[k]][i]){
-                    fill(grid, rowB[k], i, n, m);
-                }
+            if(grid[0][i] && !vis[0][i]){
+                fill(grid, 0, i, n, m);
+            }
+            if(grid[n-1][i] && !vis[n-1][i]){
+                fill(grid, n - 1, i, n, m);
             }
         }
 
