@@ -6,8 +6,6 @@ public:
         int idx = lower_bound(begin(arr),end(arr), x) - begin(arr);
         int start = idx - 1, end = idx;
         
-        // cout << idx << " " << endl;
-        
         while(k--){
             int z = INT_MAX, y = INT_MAX;
             if(start >= 0){
