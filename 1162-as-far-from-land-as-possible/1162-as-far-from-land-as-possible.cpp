@@ -21,7 +21,7 @@ class Solution
         {
             int d = 0, md = -1;
             int n = size(grid), m = size(grid[0]);
-            queue<vector < int>> Q;
+            queue<pi> Q;
 
             for (int r = 0; r < n; ++r)
             {
@@ -51,14 +51,15 @@ class Solution
                     Q.pop();
                     for (auto &dir: dirs)
                     {
-                        int i = P[0] + dir[0],
-                            j = P[1] + dir[1];
+                        int i = P.first + dir[0],
+                            j = P.second + dir[1];
                         if (safe(i, j, n, m) &&
                             grid[i][j] != -1 &&
                             grid[i][j] > d
                        )
                         {
-                            Q.push({ i, j });
+                            Q.push({ i,
+                                j });
                             grid[i][j] = d;
                         }
                     }
