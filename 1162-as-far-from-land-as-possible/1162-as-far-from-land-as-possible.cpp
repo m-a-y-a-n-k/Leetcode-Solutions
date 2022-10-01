@@ -12,10 +12,6 @@ class Solution
             1 }
     };
 
-    bool safe(int x, int y, int n, int m)
-    {
-        return (x >= 0 && x < n && y >= 0 && y < m);
-    }
     public:
         int maxDistance(vector<vector < int>> &grid)
         {
@@ -53,8 +49,11 @@ class Solution
                     {
                         int i = P.first + dir[0],
                             j = P.second + dir[1];
-                        if (safe(i, j, n, m) &&
-                            grid[i][j] != -1 &&
+                        if (i < 0 || i >= n || j < 0 || j >= m)
+                        {
+                            continue;
+                        }
+                        if (grid[i][j] != -1 &&
                             grid[i][j] > d
                        )
                         {
