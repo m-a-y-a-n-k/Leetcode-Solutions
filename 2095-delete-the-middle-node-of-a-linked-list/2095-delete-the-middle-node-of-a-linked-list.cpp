@@ -25,8 +25,8 @@ public:
             }
         }        
         
-        if(pre && pre -> next)
-            pre -> next = pre -> next -> next;
+        if(pre && slow)
+            pre -> next = slow -> next;
         
         return head;
     }
