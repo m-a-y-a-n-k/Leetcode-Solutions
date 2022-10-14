@@ -14,27 +14,19 @@ public:
         if(!head || !head -> next){
             return NULL;
         }
-        ListNode *slow = head, *fast = head;
+        ListNode *slow = head, *fast = head, *pre = NULL;
         
         while(fast){
             fast = fast -> next;
             if(fast){
                 fast = fast -> next;
+                pre = slow;
                 slow = slow -> next;
             }
-        }
+        }        
         
-        fast = head;
-        
-        while(fast){
-            if(fast -> next == slow){
-                break;
-            }
-            fast = fast -> next;
-        }
-        
-        if(fast && fast -> next)
-            fast -> next = fast -> next -> next;
+        if(pre && pre -> next)
+            pre -> next = pre -> next -> next;
         
         return head;
     }
