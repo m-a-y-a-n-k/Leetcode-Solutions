@@ -3,11 +3,7 @@
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        
-        if(k == 0){
-            return false;
-        }
-        
+                
         uom<int,int> U;
         
         int i = 0, n = size(nums);
