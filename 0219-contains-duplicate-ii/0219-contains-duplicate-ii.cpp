@@ -11,18 +11,13 @@ public:
         uom<int,int> U;
         
         int i = 0, n = size(nums);
-        
-        for(; i < k && i < n; ++i){
-            if(U[nums[i]] == 1)
-                return true;
-            U[nums[i]] = 1;
-        }
-        
+                
         for(; i < n; ++i){
-            if(U[nums[i]] == 1)
-                return true;
-            U[nums[i-k]] = 0;
-            U[nums[i]] = 1;
+            if(U.find(nums[i]) != U.end()){
+                if(i - U[nums[i]] <= k)
+                    return true;
+            }
+            U[nums[i]] = i;
         }
         
         return false;
