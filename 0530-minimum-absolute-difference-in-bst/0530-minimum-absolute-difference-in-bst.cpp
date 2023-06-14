@@ -11,23 +11,24 @@
  */
 class Solution {
     int minDiff;
-    vector<int> list;
+    TreeNode *prevNode;
     
     void explore(TreeNode* root){
         if(root == NULL){
             return ;
         }
         explore(root->left);
-        list.push_back(root->val);
+        if(prevNode != NULL){
+            minDiff = min(minDiff, root->val - prevNode -> val);
+        }
+        prevNode = root;
         explore(root->right);
     }
 public:
     int getMinimumDifference(TreeNode* root) {
         minDiff = INT_MAX;
+        prevNode = NULL;
         explore(root);
-        for(int i = 1; i < list.size(); ++i){
-            minDiff = min(minDiff, list[i] - list[i-1]);
-        }
         return minDiff;
     }
 };
