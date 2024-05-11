@@ -15,10 +15,10 @@ var minDepth = function(root) {
         return 0;
     }
     const minLeftDepth = minDepth(root.left);
-    const minRightDepth = minDepth(root.right);
     if(!minLeftDepth){
-        return minRightDepth + 1;
+        return minDepth(root.right) + 1;
     }
+    const minRightDepth = minDepth(root.right);
     if(!minRightDepth){
         return minLeftDepth + 1;
     }
