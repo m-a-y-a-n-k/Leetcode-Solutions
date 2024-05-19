@@ -3,18 +3,18 @@
  * @return {Object}
  */
 var expect = function(val) {
+    
     return {
-        toBe(valB){
-            if(val === valB){
+        toBe(testVal){
+            if(testVal === val)
                 return true;
-            }
-            throw new Error("Not Equal");
+            throw "Not Equal"
         },
-        notToBe(valC){
-            if(val !== valC){
+        notToBe(testVal){
+            if(testVal !== val){
                 return true;
             }
-            throw new Error("Equal");
+            throw 'Equal';
         }
     }
 };
